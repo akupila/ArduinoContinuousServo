@@ -31,7 +31,7 @@ The ContinuousServo library attempts to bridge the gap by providing a way to use
 How servos work
 -------------------------
 
-A servo motor expects a pulse every ~20ms. The length of this pulse determine the angle for regular servos or speed for continuous servos. For this we'll only consider continuous servos, the regular [Servo library] is already great for normal servos.
+A servo motor expects a pulse every ~20ms. The length of this pulse determines the angle for regular servos or speed for continuous servos. For this we'll only consider continuous servos, the regular [Servo library] is already great for normal servos.
 
 A pulse of 1.5ms sets the zero position, a shorter pulse makes the servo turn left and a longer one makes it turn right. By counting these pulses we can simulate a stepper motor using servos.
 
@@ -39,7 +39,7 @@ A pulse of 1.5ms sets the zero position, a shorter pulse makes the servo turn le
 
 #### Example
 
-`servo.step(100);` Gives the servo 100 pulses, a 2ms every 20ms. The servo turns right for approx 2sec.
+`servo.step(100);` Gives the servo 100 pulses, a 2ms pulse every 20ms. The servo turns right for approx 2sec.
 
 `servo.step(-100);` Gives the servo 100 1ms pulses, making it turn left instead
 
@@ -160,7 +160,7 @@ Conclusion
 -------------------------
 Don't expect this to be perfect, it won't be. This is just the reality we have to live with when working with cheap servo motors. It still pushes accuracy to the highest possible level with these guys, the normal [Servo library] won't be as easy to work with as you cannot determine the number of pulses a servo got.
 
-Any suggestions, bufxies or optimizations are highly appreciated!
+Any suggestions, bugfixes or optimizations are highly appreciated!
 
 
 [Servo library]: http://arduino.cc/en/Reference/Servo
