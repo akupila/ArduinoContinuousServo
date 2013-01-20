@@ -153,7 +153,7 @@ void doneStepping()
 }
 ```
 
-It's possible the servo moves faster in one direction than the other. In this can you can vary the number of steps depending on direction.
+It's possible the servo moves faster in one direction than the other. In this case can you can vary the number of steps depending on direction.
 
 
 Conclusion
