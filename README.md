@@ -82,6 +82,8 @@ ContinuousServo servo(2);
 
 void setup()
 {
+	Serial.begin(57600);
+
 	// Step 50 steps forward, then output steps
 	servo.step(50, stepDone);
 }
@@ -121,7 +123,9 @@ int step = 0;
 boolean fwd = true;
 
 void setup()
-{ 
+{
+	Serial.begin(57600);
+	
 	servo.step(steps, doneStepping);
 }
 
