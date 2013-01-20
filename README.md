@@ -11,7 +11,11 @@ Sorry to blow the fluffy duffy dream that you might see here: servos are notorio
 
 ContinuousServo uses the AVR timer1, same as the [Servo library]. This means that both cannot be used at once.
 
-The library currently has only been tested with ATMega328. Other microcontrollers are currently not supported.
+
+Support
+-------------------------
+
+The library currently has only been tested with ATMega328 but should work with everything from ATMega8 and up.
 
 
 Why?
