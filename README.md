@@ -30,7 +30,7 @@ A servo motor expects a pulse every ~20ms. The length of this pulse determine th
 
 A pulse of 1.5ms sets the zero position, a shorter pulse makes the servo turn left and a longer one makes it turn right. By counting these pulses we can simulate a stepper motor using servos.
 
-[1ms = -90, 1.5ms = 90, 2ms = 180](https://github.com/akupila/ArduinoContinuousServo/blob/master/docs/operation.png "Servo duty cycle")
+![1ms = -90, 1.5ms = 90, 2ms = 180](https://github.com/akupila/ArduinoContinuousServo/blob/master/docs/operation.png "Servo duty cycle")
 
 #### Example
 
