@@ -125,7 +125,7 @@ boolean fwd = true;
 void setup()
 {
 	Serial.begin(57600);
-	
+
 	servo.step(steps, doneStepping);
 }
 
@@ -155,7 +155,7 @@ Conclusion
 -------------------------
 Don't expect this to be perfect, it won't be. This is just the reality we have to live with when working with cheap servo motors. It still pushes accuracy to the highest possible level with these guys, the normal [Servo library] won't be as easy to work with as you cannot determine the number of pulses a servo got.
 
-Any suggestions or optimizations are highly appreciated!
+Any suggestions, bufxies or optimizations are highly appreciated!
 
 
 [Servo library]: http://arduino.cc/en/Reference/Servo
