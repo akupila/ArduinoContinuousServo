@@ -112,7 +112,7 @@ Not all servos are created equal. Even servos with the exact same model can (lik
 
 You can adjust the min and max pulse that should be sent. If the datasheet for the servo states these values they're likely good to use, otherwise trial and error might be necessary.
 
-I found a full backwards pulse to be 564us and a full forward pulse to be 1733us for the medium continuous servo at sparkfun. This makes the servo return to its starting position when going X steps forward and the same amount of steps backwards.
+I found a full backwards pulse to be 564us and a full forward pulse to be 1733us for the [medium continuous servo at sparkfun]. This makes the servo return to its starting position when going X steps forward and the same amount of steps backwards.
 
 You can define the pulse lengths in the constructor:
 `ContinuousServo servo(2, 564, 1733);`
@@ -164,3 +164,4 @@ Any suggestions, bugfixes or optimizations are highly appreciated!
 
 
 [Servo library]: http://arduino.cc/en/Reference/Servo
+[medium continuous servo at sparkfun]: https://www.sparkfun.com/products/10189
