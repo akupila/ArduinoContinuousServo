@@ -1,0 +1,5 @@
+ContinuousServo	KEYWORD1
+step	KEYWORD2
+stop	KEYWORD2
+getSteps	KEYWORD2
+storeSteps	KEYWORD2
