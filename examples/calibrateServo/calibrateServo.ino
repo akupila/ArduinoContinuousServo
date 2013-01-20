@@ -9,7 +9,9 @@ int step = 0;
 boolean fwd = true;
 
 void setup()
-{ 
+{
+	Serial.begin(57600);
+	
 	servo.step(steps, doneStepping);
 }
 
