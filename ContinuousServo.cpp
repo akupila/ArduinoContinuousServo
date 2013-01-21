@@ -132,7 +132,7 @@ SIGNAL (TIMER1_COMPA_vect)
 		{
 			// The cycle from the previous interrupt has completed, switch off pin
 			digitalWrite(servos[activeServo].pin, LOW);  // End pulse
-			if (activeServo >= servoCount) busy = false; // This was the last servo, if necessary interrupts can be disabled for a couple ms..
+			if (activeServo >= servoCount - 1) busy = false; // This was the last servo, if necessary interrupts can be disabled for a couple ms..
 
 			servos[activeServo].step += servos[activeServo].direction;
 			
