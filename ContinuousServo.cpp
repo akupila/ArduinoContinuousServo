@@ -18,7 +18,8 @@
 #define usToTicks(_us)	(( clockCyclesPerMicrosecond() * _us) / 8)	// converts microseconds to ticks, assumes /8 prescaler
 
 static volatile int8_t activeServo = -1;	// index of current servo. -1 = no servos need to be pulsed in this duty cycle
-static volatile servo_t servos[12];			// current pulse lengths by servo
+static volatile servo_t servos[12];			// array of servo objects
+bool busy = false;							// in pulse, other libraries should check for isBusy() and not disable interrupts
 uint8_t servoCount = 0;		   				// total number of servos
 bool timerInitialized = false; 				// timer should be initialized only once
 
@@ -92,6 +93,11 @@ void ContinuousServo::storeSteps(int steps)
 	servos[index].step = steps;
 }
 
+bool ContinuousServo::isBusy()
+{
+	return busy;
+}
+
 // Private
 // ------------------------------------
 
@@ -126,6 +132,7 @@ SIGNAL (TIMER1_COMPA_vect)
 		{
 			// The cycle from the previous interrupt has completed, switch off pin
 			digitalWrite(servos[activeServo].pin, LOW);  // End pulse
+			if (activeServo >= servoCount) busy = false; // This was the last servo, if necessary interrupts can be disabled for a couple ms..
 
 			servos[activeServo].step += servos[activeServo].direction;
 			
@@ -146,12 +153,17 @@ SIGNAL (TIMER1_COMPA_vect)
 	if (activeServo < servoCount)
 	{
 		// // Only process servo if it needs to be moved
-		if (servos[activeServo].stepSize > 0 && servos[activeServo].active)
+		if (servos[activeServo].active)
 		{
 			// OCR1A = when to fire interrupt
 			// TCNT1 = current counter value
 			OCR1A = TCNT1 + servos[activeServo].stepSize; // Trigger next interrupt after ticks for active servo
 			digitalWrite(servos[activeServo].pin, HIGH); // Start pulse
+			busy = true;
+		}
+		else
+		{
+			OCR1A = TCNT1 + 4;
 		}
 	}
 	else

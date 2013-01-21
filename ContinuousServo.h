@@ -49,6 +49,7 @@ public:
 	void stop();
 	int getSteps();
 	void storeSteps(int steps);
+	bool isBusy();
 private:
 	uint8_t index;
 	int pin;

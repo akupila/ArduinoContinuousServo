@@ -9,7 +9,7 @@ Limitations
 
 Sorry to blow the fluffy duffy dream that you might see here: servos are notoriously inaccurate. While applications may differ you'll likely still need some sort of calibration in software.
 
-ContinuousServo uses the AVR timer1, same as the [Servo library]. This means that both cannot be used at once.
+ContinuousServo uses the AVR timer1, same as the [Servo library]. This means that both cannot be used at once. Also due to timer1 being used PWM on pins 9 and 10 won't work (3, 5, 6 and 11 are still fine though)
 
 
 Support
