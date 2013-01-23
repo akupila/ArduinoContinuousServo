@@ -61,7 +61,7 @@ void ContinuousServo::step(int steps, void (*isr)())
 
 	uint8_t oldSREG = SREG; // Store previous state before turning off interrupts
 	cli(); // clear interrupts
-    servos[index].direction = steps > 0 ? 1 : -1;
+    servos[index].direction = (steps == 0 ? (0 : steps > 0 1 : -1));
 	servos[index].targetStep = servos[index].step + steps;
 	servos[index].stepSize = stepSizeInTicks; // in ms
 	servos[index].active = (steps != 0);
@@ -96,6 +96,11 @@ void ContinuousServo::storeSteps(int steps)
 bool ContinuousServo::isBusy()
 {
 	return busy;
+}
+
+char getDirection()
+{
+	return servos[index].direction; // 1 or -1, 0 = stopped
 }
 
 // Private
